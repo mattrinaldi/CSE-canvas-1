@@ -2,28 +2,26 @@
 <html>
 	<head>
 		<title>Canvas Example - Draw at a point</title>
+		<style>
+		#myCanvas {
+			border: 1px dotted red;
+		}
+		</style>
 	</head>
 	<body>
-		<canvas width="500" height="500" id="myCanvas"></canvas>
+		<canvas width="250" height="250" id="myCanvas"></canvas>
 		
-		<form id="canvasForm">
-			<label>x <input type="text" name="x" size="3" value="0"></label>
-			<label>y <input type="text" name="y" size="3" value="0" ></label>
-            <label>color <input type="text" name="color" size="7" value="#0000ff"></label>
-			<label>radius <input type="text" name="radius" size="3" value="20"></label>
-			<input type="submit" value="Draw Circle">
-		</form>
 		
 		<script>
 			var canvas = document.getElementById('myCanvas');
 			var ctx = canvas.getContext('2d');
 			
-			var form = document.getElementById('canvasForm');
-			form.addEventListener('submit', function(event) {
-				event.preventDefault();
-				
-				drawCircle(form.x.value, form.y.value, form.radius.value, form.color.value);
+			canvas.addEventListener('mousemove', function(event) {
+				console.log('mousemove at (%o, %o)', event.offsetX, event.offsetY);
+				drawCircle(event.offsetX,event.offsetY,5);
+			
 			});
+		
 			
 			function drawCircle(x, y, radius, color)
 			{
@@ -35,37 +33,8 @@
 				
 				// set the fill color to red
 				ctx.fillStyle= color || "#FF0000";
-    			ctx.fill();
+				ctx.fill();
 			}
-			
-			
-			
-		</script>
-	</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Canvas Example - Draw at a point</title>
-		<style>
-		#myCanvas {
-			border: 3px solid black;
-		}
-		</style>
-	</head>
-	<body>	
-		<script>
-			var canvas = document.getElementById('myCanvas');
-			var ctx = canvas.getContext('2d');
-			
-			canvas.addEventListener('mousemove', function(event) {
-				console.log('mousemove at (%o, %o)', event.offsetX, event.offsetY);
-			});
-			
-			
 			
 		</script>
 	</body>
