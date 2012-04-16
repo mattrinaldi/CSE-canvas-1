@@ -4,14 +4,17 @@
 		<title>Canvas Example - Draw at a point</title>
 		<style>
 		#myCanvas {
-			border: 1px dotted red;
+			border: 5px solid yellow;
 		}
 		</style>
 	</head>
 	<body>
-		<canvas width="250" height="250" id="myCanvas"></canvas>
-		
-		
+		<canvas width="500" height="500" id="myCanvas"></canvas>
+		<form id="canvasForm">
+		<input type="submit" value="Clear">
+		<form id="canvasForm">
+		<input type="submit" value="Erase">
+		</form>
 		<script>
 			var canvas = document.getElementById('myCanvas');
 			var ctx = canvas.getContext('2d');
@@ -32,7 +35,7 @@
 				ctx.closePath();
 				
 				// set the fill color to red
-				ctx.fillStyle= color || "#FF0000";
+				ctx.fillStyle= color || "#243B0B";
 				ctx.fill();
 			}
 			
